@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // List of products for demonstration
     const products = {
         "flower": { name: "Flower", price: "$100", description: "A beautiful flower." },
-        "NightBot": { name: "Aoa", price: "", description: "Aoa. Do you have any question about SHJR?" },
         "laptop": { name: "Laptop", price: "$100", description: "Laptop has too much power" },
+        "NightBot": { name: "Hi", price: "", description: "Aoa. Do you have any question about SHJR?" }
     };
 
     // Show chat UI if user is logged in
@@ -36,6 +36,49 @@ document.addEventListener("DOMContentLoaded", () => {
             : 'Don\'t have an account? <span>Register here</span>';
     });
 
+    // Handle Login or Registration
+    authButton.addEventListener("click", () => {
+        const email = emailInput.value.trim();
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const age = ageInput.value.trim();
+
+        if (!email || !username || !password) {
+            alert("Please enter email, username, and password.");
+            return;
+        }
+
+        if (isRegistering) {
+            // Registration requires email, username, password, phone, and age
+            if (!phone || !age) {
+                alert("Please enter your phone number and age.");
+                return;
+            }
+
+            // Store user data as a JSON string
+            const userData = { email, username, password, phone, age };
+            localStorage.setItem(username, JSON.stringify(userData));
+            alert("Registration successful! Please login.");
+            toggleAuth.click(); // Switch back to login mode
+        } else {
+            // Login: Check if user exists
+            const storedUser = JSON.parse(localStorage.getItem(username));
+            if (storedUser && storedUser.password === password) {
+                localStorage.setItem("loggedInUser", username);
+                showChat();
+            } else {
+                alert("Invalid credentials!");
+            }
+        }
+    });
+
+    // Show Chat UI and hide Auth container
+    function showChat() {
+        authContainer.style.display = "none";
+        chatbox.style.display = "flex";
+    }
+
     // Function to add a message to the chat window
     function addMessage(sender, message) {
         const messageDiv = document.createElement("div");
@@ -48,12 +91,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // Handle product-related queries
     function handleProductQuery(query) {
         const lowerQuery = query.toLowerCase();
+
         for (const key in products) {
             const product = products[key];
             if (lowerQuery.includes(product.name.toLowerCase())) {
                 return `${product.name}: ${product.description} Price: ${product.price}`;
             }
         }
+
         return "Sorry, I don't understand that. Can you clarify?";
     }
 
@@ -75,68 +120,60 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.key === "Enter") sendButton.click();
     });
 
-    // Add loading animation on login or register button click
-    async function handleAuthAction() {
+    // Register and login with async request
+    authButton.addEventListener("click", async () => {
         const email = emailInput.value.trim();
         const username = usernameInput.value.trim();
         const password = passwordInput.value.trim();
         const phone = phoneInput.value.trim();
         const age = ageInput.value.trim();
 
-        if (!email || !username || !password || (isRegistering && (!phone || !age))) {
-            alert("Please fill in all required fields.");
+        if (!email || !username || !password || !phone || !age) {
+            alert("Please fill in all fields.");
             return;
         }
 
-        // Show loading animation
-        const loadingOverlay = document.createElement("div");
-        loadingOverlay.id = "loading-overlay";
-        loadingOverlay.innerHTML = "<h2>Processing...</h2>";
-        document.body.appendChild(loadingOverlay);
-
-        // Simulate the login or registration process (timeout for 5 seconds)
-        await new Promise(resolve => setTimeout(resolve, 5000));
-
-        // Handle registration or login
         if (isRegistering) {
-            const userData = { email, username, password, phone, age };
-            localStorage.setItem(username, JSON.stringify(userData));
-            alert("Registration successful! Please login.");
-            toggleAuth.click(); // Switch back to login mode
-        } else {
-            const storedUser = JSON.parse(localStorage.getItem(username));
-            if (storedUser && storedUser.password === password) {
-                localStorage.setItem("loggedInUser", username);
-                showChat();
-            } else {
-                alert("Invalid credentials!");
-            }
+            // Send registration data to the server
+            const response = await fetch("http://localhost:3000/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, username, password, phone, age }),
+            });
+
+            const data = await response.json();
+            alert(data.message);
+            if (response.ok) toggleAuth.click(); // Switch back to login mode
         }
+    });
 
-        // Remove the loading animation
-        loadingOverlay.remove();
-    }
-
-    // Handle Login or Registration
-    authButton.addEventListener("click", handleAuthAction);
-
-    // Show Chat UI and hide Auth container
-    function showChat() {
-        authContainer.style.display = "none";
-        chatbox.style.display = "flex";
-    }
-
-    // Logout function (with loading animation)
+    // Logout function with loading effect
     function logout() {
+        // Create a loading effect
         let logoutOverlay = document.createElement("div");
         logoutOverlay.id = "logout-overlay";
         logoutOverlay.innerHTML = "<h2>Logging Out...</h2>";
         document.body.appendChild(logoutOverlay);
 
+        // Wait 2 seconds, then show the login page
         setTimeout(() => {
-            document.getElementById("chatbox").style.display = "none";
-            document.getElementById("auth-container").style.display = "block";
+            document.getElementById("chatbox").style.display = "none"; // Hide chatbox
+            document.getElementById("auth-container").style.display = "block"; // Show login/register
+            // Remove the loading overlay
             logoutOverlay.remove();
         }, 2000);
     }
+
+    // JavaScript to generate snowflakes dynamically
+    function createSnowflakes() {
+        const snowfall = document.getElementById('snowfall');
+
+        for (let i = 0; i < 100; i++) {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowfall.appendChild(snowflake);
+        }
+    }
+
+    window.onload = createSnowflakes;
 });
