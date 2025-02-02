@@ -92,6 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
           alert("Invalid credentials!");
         }
       }
+      
     });
   
     // Show Chat UI and hide Auth container
@@ -169,4 +170,38 @@ document.addEventListener("DOMContentLoaded", () => {
       
     });
   });
+  function logout() {
+    document.getElementById("chatbox").style.display = "none"; // Hide chatbox
+    document.getElementById("auth-container").style.display = "block"; // Show login/register
+  }
+  function logout() {
+    // Create a loading effect
+    let logoutOverlay = document.createElement("div");
+    logoutOverlay.id = "logout-overlay";
+    logoutOverlay.innerHTML = "<h2>Logging Out...</h2>";
+    document.body.appendChild(logoutOverlay);
+  
+    // Wait 2 seconds, then show the login page
+    setTimeout(() => {
+      document.getElementById("chatbox").style.display = "none"; // Hide chatbox
+      document.getElementById("auth-container").style.display = "block"; // Show login/register
+      
+      // Remove the loading overlay
+      logoutOverlay.remove();
+    }, 2000);
+  }
+  // JavaScript to generate snowflakes dynamically
+function createSnowflakes() {
+  const snowfall = document.getElementById('snowfall');
+
+  for (let i = 0; i < 100; i++) {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowfall.appendChild(snowflake);
+  }
+}
+
+window.onload = createSnowflakes;
+
+  
   
