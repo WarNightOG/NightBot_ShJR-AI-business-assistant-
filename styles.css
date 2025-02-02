@@ -102,6 +102,14 @@ body::after {
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
+  background: red;
+  color: rgb(0, 0, 0);
+  margin-right: 100px; /* Adds space between the buttons */
+}
+
+#register-button:hover {
+  background: rgb(255, 6, 6);
+  box-shadow: 0px 0px 5px darkred;
 }
 
 #logout-button {
@@ -113,17 +121,6 @@ body::after {
   font-weight: lighter;
   cursor: pointer;
   transition: 0.3s;
-}
-
-#register-button {
-  background: red;
-  color: rgb(0, 0, 0);
-  margin-right: 100px; /* Adds space between the buttons */
-}
-
-#register-button:hover {
-  background: rgb(255, 6, 6);
-  box-shadow: 0px 0px 5px darkred;
 }
 
 #logout-button {
