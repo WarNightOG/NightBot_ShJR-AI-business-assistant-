@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Snowfall Effect -->
+  <div id="snowfall"></div>
+
   <!-- Auth Section (Login/Register) -->
   <div id="auth-container">
     <h2 id="auth-title">Login</h2>
@@ -46,10 +49,32 @@
     </div>
     <div class="input-container">
       <input type="text" id="user-input" placeholder="Type your question..." />
+      <!-- Register Button with correct Google Form Link -->
+      
+      <!-- Logout Button -->
+      <button id="logout-button" onclick="logout()">Logout</button>
+      <!-- Send Button -->
       <button id="send-button">Send</button>
     </div>
   </div>
-
+  
   <script src="script.js"></script>
+
+  <script>
+    // JavaScript to generate snowflakes dynamically
+    function createSnowflakes() {
+        const snowfall = document.getElementById('snowfall');
+        for (let i = 0; i < 200; i++) {  // Increase the number of snowflakes
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.style.left = `${Math.random() * 100}vw`;  // Random horizontal position
+            snowflake.style.animationDuration = `${Math.random() * 10 + 5}s`;  // Random speed
+            snowflake.style.animationDelay = `${Math.random() * 5}s`;  // Random delay
+            snowfall.appendChild(snowflake);
+        }
+    }
+  
+    window.onload = createSnowflakes;
+  </script>
 </body>
 </html>
