@@ -52,7 +52,7 @@ body::after {
 #chatbox {
   width: 900px;
   height: 500px;
-  background: rgba(30, 30, 50, 0.9); /* Slight blue tint */
+  background: rgba(30, 30, 50, 0.9);
   border-radius: 15px;
   box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.3);
   display: flex;
@@ -67,7 +67,7 @@ body::after {
 #chat-messages {
   flex-grow: 1;
   overflow-y: auto;
-  margin-bottom: 60px; /* Adjusted margin */
+  margin-bottom: 60px;
 }
 
 .user-message, .bot-message {
@@ -81,7 +81,7 @@ body::after {
 
 .user-message {
   align-self: flex-end;
-  background: rgba(50, 50, 70, 0.9); /* Winter grey-blue */
+  background: rgba(50, 50, 70, 0.9);
   border: 1px solid #00ffff;
   box-shadow: 0px 0px 5px #00ffff;
 }
@@ -92,78 +92,11 @@ body::after {
   border-left: 3px solid #00ffff;
 }
 
-/* Register & Logout Buttons at Top Right */
-#register-button {
-  position: absolute;
-  top: 350px; /* Aligns to the top */
-  right: 80px; /* Aligns to the right */
-  padding: 10px 2px;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-#logout-button {
-  position: absolute;
-  top: 420px; /* Aligns to the top */
-  right: 182px; /* Aligns to the right */
-  padding: 10px 7px;
-  border-radius: 12px;
-  font-weight: lighter;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-#register-button {
-  background: red;
-  color: rgb(0, 0, 0);
-  margin-right: 100px; /* Adds space between the buttons */
-}
-
-#register-button:hover {
-  background: rgb(255, 6, 6);
-  box-shadow: 0px 0px 5px darkred;
-}
-
-#logout-button {
-  background: orange;
+/* Buttons */
+button {
+  padding: 10px 15px;
+  background: #00bcd4;
   color: white;
-}
-
-#logout-button:hover {
-  background: rgb(255, 230, 0);
-  box-shadow: 0px 0px 10px darkorange;
-}
-
-/* Input Bar at the Bottom */
-#input-container {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  width: 90%;
-  display: flex;
-  gap: 5px;
-}
-
-/* User Input */
-#user-input {
-  flex-grow: 1;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  background: rgba(0, 0, 30, 0.8);
-  color: white;
-  outline: none;
-  width: 295px;
-  margin-top: 340px;
-}
-
-/* Send Button at the Right */
-#send-button {
-  padding: 10px;
-  background: #04fff2;
-  color: black;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -171,8 +104,25 @@ body::after {
   transition: 0.3s;
 }
 
-#send-button:hover {
-  background: #72ffff;
+button:hover {
+  background: #008ba3;
+  box-shadow: 0px 0px 10px rgba(0, 188, 212, 0.8);
+}
+
+/* Input Fields */
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #00bcd4;
+  background: rgba(0, 0, 30, 0.8);
+  color: white;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus {
+  border: 2px solid #00ffff;
   box-shadow: 0px 0px 10px #00ffff;
 }
 
@@ -193,75 +143,7 @@ body::after {
   animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Fade-in Animation */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Auth Container */
-#auth-container {
-  width: 400px;
-  padding: 30px;
-  background: rgba(30, 30, 50, 0.95);
-  border-radius: 15px;
-  box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.2);
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 2px solid #00ffff;
-}
-
-/* Input Fields for Login/Register */
-#auth-container input {
-  width: 90%;
-  padding: 10px;
-  margin: 10px 0;
-  background: rgba(40, 40, 60, 0.9);
-  border: 1px solid transparent;
-  border-radius: 8px;
-  color: white;
-  outline: none;
-  transition: 0.3s;
-}
-
-#auth-container input:focus {
-  border: 1px solid #00ffff;
-  box-shadow: 0px 0px 10px #00ffff;
-}
-
-/* Buttons for Login/Register */
-#auth-button, #toggle-auth {
-  width: 100%;
-  padding: 12px;
-  background: #0080ff;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-#auth-button:hover, #toggle-auth:hover {
-  background: #0050cc;
-  box-shadow: 0px 0px 10px #00ffff;
-}
-/* Snowfall Container */
-#snowfall {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-  overflow: hidden;
-}
-
-/* Snowflakes Styling */
+/* Snowflakes */
 .snowflake {
   position: absolute;
   top: -10px;
@@ -272,60 +154,14 @@ body::after {
   opacity: 0.8;
   animation: snowfall 15s linear infinite;
 }
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    text-align: center;
-    padding: 20px;
-}
-
-.container {
-    background: white;
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-h1 {
-    color: #333;
-}
-
-input {
-    margin: 15px 0;
-    padding: 10px;
-    border: 2px solid #007BFF;
-    border-radius: 5px;
-}
-
-#preview {
-    margin-top: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-}
-
-p {
-    font-size: 18px;
-    color: #007BFF;
-    font-weight: bold;
-}
-
-
-/* Snowfall Animation */
-@keyframes snowfall {
-  0% {
-    transform: translateY(0) scale(0.8);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh) scale(1.5);
-    opacity: 0;
-  }
-}
 
 /* Animations */
 @keyframes slideIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
