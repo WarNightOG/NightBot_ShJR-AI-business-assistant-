@@ -200,44 +200,8 @@ function createSnowflakes() {
       snowfall.appendChild(snowflake);
   }
 }
-const productData = {
-    "https://i.imgur.com/sWsYXrb.png": "Laptop has too much power",
-    "https://i.imgur.com/example2.jpg": "Leather jacket in black and brown."
-};
-const productData = {
-    "https://i.imgur.com/example1.jpg": "Smartphone with 128GB storage.",
-    "https://i.imgur.com/example2.jpg": "Leather jacket in black and brown."
-};
-
-document.getElementById("imageUpload").addEventListener("change", function(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            document.getElementById("preview").src = e.target.result;
-            document.getElementById("preview").style.display = "block";
-
-            // Simulate checking if image exists in productData
-            let found = false;
-            for (let imageUrl in productData) {
-                if (e.target.result.includes(imageUrl)) {  // Fake matching (you need real AI for this)
-                    document.getElementById("result").textContent = productData[imageUrl];
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                document.getElementById("result").textContent = "Product not found.";
-            }
-        };
-        reader.readAsDataURL(file);
-    }
-});
-
-
 
 window.onload = createSnowflakes;
-
 
   
   
