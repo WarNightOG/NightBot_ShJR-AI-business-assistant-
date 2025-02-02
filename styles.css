@@ -102,14 +102,6 @@ body::after {
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
-  background: red;
-  color: rgb(0, 0, 0);
-  margin-right: 100px; /* Adds space between the buttons */
-}
-
-#register-button:hover {
-  background: rgb(255, 6, 6);
-  box-shadow: 0px 0px 5px darkred;
 }
 
 #logout-button {
@@ -121,6 +113,17 @@ body::after {
   font-weight: lighter;
   cursor: pointer;
   transition: 0.3s;
+}
+
+#register-button {
+  background: red;
+  color: rgb(0, 0, 0);
+  margin-right: 100px; /* Adds space between the buttons */
+}
+
+#register-button:hover {
+  background: rgb(255, 6, 6);
+  box-shadow: 0px 0px 5px darkred;
 }
 
 #logout-button {
@@ -190,23 +193,6 @@ body::after {
   animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Register & Login Overlay */
-#register-login-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 30, 0.9);
-  color: white;
-  font-size: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
 /* Fade-in Animation */
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -231,24 +217,23 @@ body::after {
 /* Input Fields for Login/Register */
 #auth-container input {
   width: 90%;
-  padding: 12px;
+  padding: 10px;
   margin: 10px 0;
   background: rgba(40, 40, 60, 0.9);
-  border: 2px solid #ccc;
+  border: 1px solid transparent;
   border-radius: 8px;
   color: white;
   outline: none;
-  font-size: 16px;
   transition: 0.3s;
 }
 
 #auth-container input:focus {
-  border: 2px solid #00ffff;
+  border: 1px solid #00ffff;
   box-shadow: 0px 0px 10px #00ffff;
 }
 
-/* Register Button */
-#auth-button {
+/* Buttons for Login/Register */
+#auth-button, #toggle-auth {
   width: 100%;
   padding: 12px;
   background: #0080ff;
@@ -258,36 +243,12 @@ body::after {
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s;
-  margin-top: 15px;
 }
 
-#auth-button:hover {
+#auth-button:hover, #toggle-auth:hover {
   background: #0050cc;
   box-shadow: 0px 0px 10px #00ffff;
 }
-
-/* Title */
-h1 {
-  font-size: 24px;
-  color: #fff;
-  margin-bottom: 20px;
-}
-
-/* Instructions / Text */
-p {
-  font-size: 18px;
-  color: #007BFF;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-/* Error / Validation message */
-#error-message {
-  color: red;
-  font-size: 14px;
-  margin-top: 10px;
-}
-
 /* Snowfall Container */
 #snowfall {
   position: fixed;
