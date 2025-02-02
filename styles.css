@@ -272,6 +272,45 @@ body::after {
   opacity: 0.8;
   animation: snowfall 15s linear infinite;
 }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1 {
+    color: #333;
+}
+
+input {
+    margin: 15px 0;
+    padding: 10px;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+}
+
+#preview {
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+p {
+    font-size: 18px;
+    color: #007BFF;
+    font-weight: bold;
+}
+
 
 /* Snowfall Animation */
 @keyframes snowfall {
