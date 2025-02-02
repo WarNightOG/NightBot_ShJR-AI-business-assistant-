@@ -200,8 +200,14 @@ function createSnowflakes() {
       snowfall.appendChild(snowflake);
   }
 }
+const productData = {
+    "https://i.imgur.com/sWsYXrb.png": "Laptop has too much power",
+    "https://i.imgur.com/example2.jpg": "Leather jacket in black and brown."
+};
+
 
 window.onload = createSnowflakes;
+
 
   
   
