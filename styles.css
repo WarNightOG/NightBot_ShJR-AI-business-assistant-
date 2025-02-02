@@ -1,0 +1,191 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #1a1a1a; /* Dark background */
+    color: #ddd;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Chat Container */
+  /* Chat Container */
+  #chatbox {
+    width: 900px;
+    height: 500px;
+    background: rgba(30, 30, 30, 0.9); /* Semi-transparent black */
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+  }
+  
+  /* Logout Button */
+  
+  
+  /* Input Bar and Send Button */
+  #user-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  #send-button {
+    width: 100%;
+    padding: 10px;
+    background: cyan;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  #send-button:hover {
+    background: #00b3b3;
+    box-shadow: 0px 0px 10px #00b3b3;
+  }
+  
+  /* Chat Messages Section */
+  #chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+  }
+  
+  
+  /* Chat Messages */
+  #chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #00ffff #222;
+    margin-bottom: 70px; /* Ensure messages do not overlap input */
+  }
+  
+  /* User and Bot Messages */
+  .user-message, .bot-message {
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    word-wrap: break-word;
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  .user-message {
+    align-self: flex-end;
+    background: rgba(50, 50, 50, 0.8); /* Darker grey */
+    border: 1px solid #00ffff;
+    box-shadow: 0px 0px 5px #00ffff;
+  }
+  
+  .bot-message {
+    align-self: flex-start;
+    background: rgba(20, 20, 20, 0.8);
+    border-left: 3px solid #00ffff;
+  }
+  
+  /* Input Bar */
+  #user-input {
+    width: calc(100% - 80px);
+    padding: 10px;
+    background: rgba(40, 40, 40, 0.9);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.3s;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+  }
+  
+  #user-input:focus {
+    border: 1px solid #00ffff;
+    box-shadow: 0px 0px 8px #00ffff;
+  }
+  
+  /* Send Button */
+  #send-button {
+    width: 60px;
+    padding: 10px;
+    background: #00ffff;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: absolute;
+    bottom: 24.9px;
+    right: 0.1px;
+  }
+  
+  #send-button:hover {
+    background: cyan;
+    box-shadow: 0px 0px 10px cyan;
+    align-items: end;
+  }
+  
+  /* Logout Button */
+  
+  /* Authentication Container */
+  
+  
+  /* Input Fields */
+  input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    background: rgba(40, 40, 40, 0.9);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+  }
+  
+  input:focus {
+    border: 1px solid #00ffff;
+    box-shadow: 0px 0px 10px #00ffff;
+  }
+  
+  /* Auth Buttons */
+  #auth-button, #toggle-auth {
+    width: 100%;
+    padding: 10px;
+    background: grey;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  #auth-button:hover, #toggle-auth:hover {
+    background: black;
+    box-shadow: 0px 0px 10px cyan;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
