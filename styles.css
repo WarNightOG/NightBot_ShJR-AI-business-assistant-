@@ -11,6 +11,32 @@ body {
   overflow: hidden;
   position: relative;
 }
+@media screen and (max-width: 768px) {
+  .input-bar {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .send-button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.input-bar {
+  flex: 1;
+  margin-bottom: 10px;
+}
+
+.send-button {
+  flex: 0;
+}
+
 
 /* Snowfall Effect */
 body::before, body::after {
