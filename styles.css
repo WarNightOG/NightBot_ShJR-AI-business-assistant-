@@ -107,7 +107,7 @@ body::after {
 #logout-button {
   position: absolute;
    /* Aligns to the top */
- margin-left: 320px;/* Aligns to the right */
+ margin-left: 57px;/* Aligns to the right */
   padding: 10px 7px;
   border-radius: 12px;
   font-weight: lighter;
