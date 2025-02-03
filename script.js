@@ -201,19 +201,6 @@ function createSnowflakes() {
   }
 }
 const logoutButton = document.getElementById('logout-button');
-
-logoutButton.addEventListener('click', function() {
-  // Add loading animation
-  logoutButton.classList.add('loading');
-  
-  // Simulate some delay (like API request or actual logout)
-  setTimeout(function() {
-    // Once logging out is complete, remove the loading animation
-    logoutButton.classList.remove('loading');
-    // You can redirect or trigger actual logout here
-  }, 2000); // Set this timeout for the duration of the animation
-});
-const logoutButton = document.getElementById('logout-button');
 const logoutOverlay = document.getElementById('logout-overlay');
 const body = document.body;
 
