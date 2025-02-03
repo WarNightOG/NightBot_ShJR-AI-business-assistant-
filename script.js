@@ -213,6 +213,26 @@ logoutButton.addEventListener('click', function() {
     // You can redirect or trigger actual logout here
   }, 2000); // Set this timeout for the duration of the animation
 });
+const logoutButton = document.getElementById('logout-button');
+const logoutOverlay = document.getElementById('logout-overlay');
+const body = document.body;
+
+logoutButton.addEventListener('click', function() {
+  // Show the overlay and blur the background
+  logoutOverlay.style.opacity = 1;  // Make the overlay visible
+  logoutOverlay.style.pointerEvents = "auto"; // Make it clickable if needed
+  body.classList.add('blur'); // Blur the background
+  
+  // Simulate a delay for logging out (4-5 seconds)
+  setTimeout(function() {
+    // Hide the overlay and unblur the background after 5 seconds
+    logoutOverlay.style.opacity = 0; // Hide the overlay
+    logoutOverlay.style.pointerEvents = "none"; // Prevent interaction
+    body.classList.remove('blur'); // Remove the blur effect
+    // Perform the actual logout here (e.g., redirect or logout logic)
+  }, 5000); // Delay of 5 seconds
+});
+
 
 
 window.onload = createSnowflakes;
