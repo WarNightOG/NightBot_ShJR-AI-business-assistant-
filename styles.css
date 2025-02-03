@@ -107,7 +107,7 @@ body::after {
 #logout-button {
   position: absolute;
    /* Aligns to the top */
-  right: 170px; /* Aligns to the right */
+ margin-left: 320px;/* Aligns to the right */
   padding: 10px 7px;
   border-radius: 12px;
   font-weight: lighter;
@@ -172,6 +172,7 @@ body::after {
   font-weight: bold;
   transition: 0.3s;
   margin-top: 340px;
+  margin-right: 300px;
 }
 
 #send-button:hover {
