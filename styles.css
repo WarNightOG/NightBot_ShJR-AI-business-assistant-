@@ -76,7 +76,16 @@ body {
   }
 
   #logout-button {
+    top: 50px; /* Move logout button below the register button */
     background: orange;
+  }
+
+  /* Adjust button width and alignment for better appearance */
+  #register-button, #logout-button {
+    width: 90%; /* Full width */
+    margin-bottom: 10px; /* Space between buttons */
+    text-align: center; /* Center text */
+    margin-left: 5%; /* Align buttons */
   }
 
   /* Snowfall effect tweaks for mobile */
