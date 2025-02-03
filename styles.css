@@ -129,6 +129,7 @@ body::after {
 #logout-button {
   background: orange;
   color: black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #logout-button:hover {
