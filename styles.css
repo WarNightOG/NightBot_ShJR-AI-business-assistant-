@@ -279,7 +279,8 @@ body::after {
   height: 100%;
   background: rgba(0, 0, 30, 0.9); /* Dark blue overlay */
   color: white;
-  font-size: 24px;
+  font-size: 30px;
+  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -289,15 +290,13 @@ body::after {
   transition: opacity 0.3s ease-in-out;
 }
 
-/* "Logging Out" Text Styling */
-#logout-overlay .message {
-  font-size: 30px;
-  font-weight: bold;
-  animation: fadeInOut 5s ease-in-out forwards; /* Animation for fade-in and fade-out */
-  text-align: center;
+/* Blurring the background */
+body.blur {
+  filter: blur(5px);
+  transition: filter 0.3s ease-in-out;
 }
 
-/* Fade-in and Fade-out Animation for the Logging Out Text */
+/* Fade-in and Fade-out Animation for "Logging Out" */
 @keyframes fadeInOut {
   0% {
     opacity: 0;
@@ -313,10 +312,19 @@ body::after {
   }
 }
 
-/* Blurring Background Effect */
-body.blur {
-  filter: blur(5px);
-  transition: filter 0.3s ease-in-out;
+#logout-overlay .message {
+  animation: fadeInOut 5s ease-in-out forwards; /* Fade in and out effect */
+  text-align: center;
+}
+
+/* For better loading animation */
+#logout-overlay .message {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+
 }
 
 
