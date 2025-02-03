@@ -57,7 +57,7 @@ body::after {
   box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.3);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-y: auto;
   position: relative;
   padding: 10px;
   border: 2px solid #00ffff;
@@ -105,7 +105,7 @@ body::after {
 }
 
 #logout-button {
-  position: end;
+  position: absolute;
   top: 425px; /* Aligns to the top */
   right: 170px; /* Aligns to the right */
   padding: 10px 7px;
@@ -138,13 +138,12 @@ body::after {
 
 /* Input Bar at the Bottom */
 #input-container {
-  position: relative; /* Changed from absolute to relative */
-  bottom: 0;
-  
+  position: absolute; /* Position fixed to bottom */
+  bottom: 10px;
+  left: 10px;
+  width: 90%;
   display: flex;
   gap: 5px;
-  width:250px; 
-  margin-top: 340px;
 }
 
 /* User Input */
@@ -156,8 +155,7 @@ body::after {
   background: rgba(0, 0, 30, 0.8);
   color: white;
   outline: none;
-  width: 250px; /* Adjusted width */
-  margin-top: 340; /* Removed margin-top */
+  width: 235px;
 }
 
 /* Send Button at the Right */
@@ -250,6 +248,7 @@ body::after {
   background: #0050cc;
   box-shadow: 0px 0px 10px #00ffff;
 }
+
 /* Snowfall Container */
 #snowfall {
   position: fixed;
