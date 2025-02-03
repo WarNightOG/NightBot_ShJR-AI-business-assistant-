@@ -126,6 +126,17 @@ body::after {
   background: rgb(255, 6, 6);
   box-shadow: 0px 0px 5px darkred;
 }
+input {
+    width: 57;
+    padding: 10px;
+    margin: 10px 0;
+    background: rgba(40, 40, 40, 0.9);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+  }
 
 #logout-button {
   background: orange;
